@@ -17,6 +17,6 @@ build: # Build the execution environment image
 .PHONY: run
 run: # Run the example playbook in the execution environment
 	ansible-runner run \
-		--container-image localhost/$(CONTAINER_NAME)/$(CONTAINER_TAG) \
+		--container-image localhost/$(CONTAINER_NAME):$(CONTAINER_TAG) \
 		--process-isolation \
 		-p mikrotik.yml .
