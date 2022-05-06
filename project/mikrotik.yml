@@ -9,7 +9,7 @@
       community.routeros.command:
         commands:
           - ":put [ /system identity get name ];"
-        register: system_identity
+      register: system_identity
 
     - name: "Print the system_identity variable in a debug message"
       when: system_identity is defined
