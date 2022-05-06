@@ -20,3 +20,9 @@ run: # Run the example playbook in the execution environment
 		--container-image localhost/$(CONTAINER_NAME):$(CONTAINER_TAG) \
 		--process-isolation \
 		-p mikrotik.yml .
+
+.PHONY: list
+list: # List all of the installed collections
+	podman container run -it --rm \
+		localhost/$(CONTAINER_NAME):$(CONTAINER_TAG) \
+		ansible-galaxy collection list
