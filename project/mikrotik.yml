@@ -1,0 +1,17 @@
+---
+
+- name: "Get the system identity of MikroTik devices"
+  gather_facts: no
+  hosts: routeros
+
+  tasks:
+    - name: "Register the system identity in a variable"
+      community.routeros.command:
+        commands:
+          - ":put [ /system identity get name ];"
+        register: system_identity
+
+    - name: "Print the system_identity variable in a debug message"
+      when: system_identity is defined
+      ansible.builtin.debug:
+        msg: "{{ system_identity.stdout }}"

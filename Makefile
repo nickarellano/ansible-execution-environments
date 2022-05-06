@@ -13,3 +13,10 @@ build: # Build the execution environment image
 		--build-arg EE_BASE_IMAGE=registry.redhat.io/ansible-automation-platform-21/ee-$(BASE_VERSION)-rhel8 \
 		--tag $(CONTAINER_NAME):$(CONTAINER_TAG) \
 		--container-runtime podman
+
+.PHONY: run
+run: # Run the example playbook in the execution environment
+	ansible-runner run \
+		--container-image localhost/$(CONTAINER_NAME)/$(CONTAINER_TAG) \
+		--process-isolation \
+		-p mikrotik.yml .

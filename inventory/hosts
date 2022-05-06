@@ -1,0 +1,8 @@
+[routeros]
+192.168.0.1
+
+[routeros:vars]
+ansible_connection=network_cli
+ansible_network_os=routeros
+ansible_user=testing
+ansible_ssh_pass=testing
