@@ -26,3 +26,9 @@ list: # List all of the installed collections
 	podman container run -it --rm \
 		localhost/$(CONTAINER_NAME):$(CONTAINER_TAG) \
 		ansible-galaxy collection list
+
+.PHONY: shell
+shell: # Run an interactive shell in the execution environment
+	podman run -it --rm \
+		localhost/$(CONTAINER_NAME):$(CONTAINER_TAG) \
+		/bin/bash
