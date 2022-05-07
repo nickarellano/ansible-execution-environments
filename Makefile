@@ -1,4 +1,4 @@
-# [ supported, 29, minimal ]
+# [ supported, minimal ]
 BASE_VERSION ?= minimal
 CONTAINER_NAME ?= routeros-ee-$(BASE_VERSION)
 CONTAINER_TAG ?= 1.0.0
